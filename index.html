@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Across the Miles | For You 💜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #2d2d2d;
+            --accent: #8e7dbe; 
+            --soft-purple: #f3f0ff;
+            --border: #e8e8e8;
+            --modal-bg: #fdfbff;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Progress Bar */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 5px;
+            background: var(--accent); z-index: 9999; width: 0%;
+            transition: width 0.2s ease;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .serif { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+        /* HERO SECTION */
+        #hero { text-align: center; background: white; }
+        .hero-date { letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 20px; opacity: 0.6; }
+        h1 { font-size: 3.5rem; font-weight: 200; margin: 0; color: var(--text); line-height: 1.2; }
+
+        /* DISTANCE BRIDGE */
+        .vertical-line {
+            width: 1px; height: 200px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            margin: 30px 0;
+        }
+
+        /* STATS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 50px;
+        }
+        .stat-item h4 { font-size: 3rem; font-weight: 200; margin: 0; color: var(--accent); }
+
+        /* LONG TEXT BLOCKS */
+        .thought-container { max-width: 700px; text-align: left; }
+        .thought-block { margin: 150px 0; }
+        .thought-block h3 { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
+        .thought-block p { font-size: 1.1rem; line-height: 2; font-weight: 300; color: #555; }
+
+        /* BUCKET LIST */
+        .bucket-list { list-style: none; padding: 0; text-align: left; font-size: 1.2rem; width: 100%; max-width: 500px;}
+        .bucket-list li { margin: 20px 0; padding-bottom: 10px; border-bottom: 1px solid var(--soft-purple); }
+        .bucket-list li span { color: var(--accent); margin-right: 15px; font-weight: bold; }
+
+        /* ENVELOPE BUTTONS */
+        .envelope-flex { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 50px; }
+        .envelope {
+            border: 1px solid var(--accent);
+            padding: 25px 40px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            background: white;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+        }
+        .envelope:hover { background: var(--soft-purple); transform: translateY(-3px); }
+
+        /* CUSTOM MODAL */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center;
+            z-index: 10000;
+        }
+        .modal-content {
+            background: var(--modal-bg);
+            width: 85%; max-width: 450px;
+            padding: 40px; border-radius: 25px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 30px rgba(142, 125, 190, 0.5);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-text { font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 25px; text-align: left; }
+        .close-btn {
+            background: var(--accent); color: white; border: none;
+            padding: 12px 25px; border-radius: 12px; cursor: pointer;
+            width: 100%; font-size: 1rem; font-weight: 500;
+        }
+
+        footer { padding: 100px 20px; text-align: center; background: white; }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <section id="hero">
+        <div class="hero-date">FEBRUARY 14, 2026</div>
+        <h1>Countless miles,<br>but you are <span class="serif">here</span>.</h1>
+        <p style="margin-top: 40px; font-weight: 300; opacity: 0.4;">Scroll to bridge the gap</p>
+    </section>
+
+    <section>
+        <p class="serif" style="font-size: 2rem;">Beaufort</p>
+        <div class="vertical-line"></div>
+        <p class="serif" style="font-size: 2rem;">Wellington</p>
+        <p style="margin-top: 30px; letter-spacing: 2px; font-size: 0.9rem;">NO DISTANCE IS TOO GREAT</p>
+    </section>
+
+    <section>
+        <h2 class="serif" style="font-size: 2.5rem;">The Reality of Us</h2>
+        <div class="stats-grid">
+            <div class="stat-item"><h4>Endless</h4><p>Days of loving you</p></div>
+            <div class="stat-item"><h4>∞</h4><p>Reasons to wait</p></div>
+            <div class="stat-item"><h4>0</h4><p>Doubts in my mind</p></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="thought-container">
+            <div class="thought-block">
+                <h3 class="serif">The Morning Routine</h3>
+                <p>Every morning, the first thing I do is reach for my phone, hoping to see a notification from you. Even though we aren't waking up in the same room yet, knowing you're out there under the same sun makes the world feel right. Distance is just a temporary phase of our story.</p>
+            </div>
+            <div class="thought-block" style="text-align: right;">
+                <h3 class="serif">A Shared Sky</h3>
+                <p>When the nights get lonely and the miles feel like they're stretching longer than usual, I look at the moon and remind myself that you're looking at it too. It’s our silent connection—a constant in the sky that proves we are never truly apart.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="serif" style="font-size: 2.5rem;">When the distance is zero...</h2>
+        <ul class="bucket-list">
+            <li><span>01.</span> Sharing a morning without a screen between us.</li>
+            <li><span>02.</span> Exploring every corner of the world together.</li>
+            <li><span>03.</span> No more sad goodbyes, ever again.</li>
+            <li><span>04.</span> Unlimited kisses, hugs, cuddles and everything we've been wanting to do.</li>
+        </ul>
+    </section>
+
+    <section id="envelopes">
+        <h2 class="serif" style="font-size: 2.5rem;">A little something for later</h2>
+        <p style="opacity: 0.6; margin-bottom: 30px;">Open these whenever you need me most.</p>
+        <div class="envelope-flex">
+            <button class="envelope" onclick="openModal('tired')">Open when you're tired</button>
+            <button class="envelope" onclick="openModal('miss')">Open when you miss me</button>
+            <button class="envelope" onclick="openModal('smile')">Open when you need a smile</button>
+        </div>
+    </section>
+
+    <footer>
+        <h1 class="serif" style="font-size: 3.5rem;">Happy Valentine's Day</h1>
+        <p style="letter-spacing: 3px; font-weight: 200;">Forever Yours. 💜</p>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-text" id="modalText"></div>
+            <button class="close-btn" onclick="closeModal()">Close with a hug 💜</button>
+        </div>
+    </div>
+
+    <script>
+        const messages = {
+            tired: `<strong>My Dearest,</strong><br><br>I know today was exhausting. I wish I could be there to pull you into a hug, give you a break from the world, and tell you that everything is going to be okay. <br><br>You handle so much with such incredible strength. Please don't forget to be kind to yourself today. Rest your heart, know that I am incredibly proud of you, and remember that I am counting down the seconds until I can be the one making you tea and helping you relax. You've got this, and I've got you.`,
+            
+            miss: `<strong>I know the feeling...</strong><br><br>Missing you is a heavy thing, but it's also a beautiful reminder of how much you mean to me. The distance is just a test to see how far love can travel, and I think we're doing amazing. <br><br>Think about the next time we'll see each other—that moment at the airport when the world finally stops spinning and everything feels right again. We are closer to that moment than we were yesterday. Stay strong for us. I am right there in your heart.`,
+            
+            smile: `<strong>Hey Beautiful,</strong><br><br>In case you didn't know, you are the most incredible person I have ever met. Your laugh is my favorite song, and your happiness is my favorite thing in the world. <br><br>Even from thousands of miles away, you manage to make my life brighter just by existing. I hope this little message brings a smile to your face, because you deserve to be as happy as you make me. You are my world, my best friend, and my favorite 'color'. Never forget how loved you are! ✨`
+        };
+
+        function openModal(type) {
+            document.getElementById('modalText').innerHTML = messages[type];
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modalOverlay')) closeModal();
+        };
+    </script>
+</body>
+</html>
